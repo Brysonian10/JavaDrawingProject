@@ -4,6 +4,7 @@ import javax.swing.JPanel;
 import drawing.controller.DrawingController;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
 import java.awt.image.*;
 import java.awt.*;
 import java.io.File;
@@ -68,6 +69,32 @@ public class ArtPanel extends JPanel
 		return randomColor;
 		
 	}
+	
+	private void setCurrentColor(String color)
+	{
+		if(color.equalsIgnoreCase("Black"))
+		{
+			currentColor = Color.BLACK;
+		}
+		else if(color.equalsIgnoreCase("purple"))
+		{
+			currentColor = new Color(75, 0, 130);
+		}
+		else
+		{
+			currentColor = randomColor();
+		}
+	}
+	
+	public void drawDot(int currentX, int currentY, int width)
+	{
+		Graphics2D current = currentCanvas.createGraphics();
+		current.setColor(currentColor);
+		current.setStroke(new BasicStroke(width));
+		current.drawOval(currentX, currentY, width, width);
+		repaint();
+	}
+	
 	
 	private void setupLayout()
 	{

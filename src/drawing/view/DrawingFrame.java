@@ -16,6 +16,9 @@ public class DrawingFrame extends JFrame
 	
 	private void setupFrame()
 	{
+		this.setSize(1000,  800);
+		this.setResizable(false);
+		this.setTitle("Drawing in Java");
 		this.setVisible(true);
 	}
 }
